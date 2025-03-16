@@ -72,6 +72,6 @@ print(f"Luftfugtighed: {sensor.humidity()}%")
 ---
 
 ## 🚀 Næste skridt
-Vi er nu klar til at måle temperatur og luftfugtighed med DHT22!
+Vi er nu klar til at måle temperatur og luftfugtighed med DHT22!    
 🔜 Fortsæt til næste modul:    
 📄 [04-first-measurement](04-first-measurement.md)
