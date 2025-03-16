@@ -1,4 +1,4 @@
-# Modul 6: Udvidelser og næste skridt
+# Modul 1.6: Udvidelser og næste skridt
 1. Installer pakker
    Tools → Manage Packages… for at installere fx numpy, requests, etc.
 
