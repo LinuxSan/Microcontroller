@@ -1,4 +1,4 @@
-# 🛠️ Modul 2.3: Opsætning af MicroPython på ESP32
+# 🛠️ Modul 2.4: Opsætning af MicroPython på ESP32
 
 ## 📌 **Introduktion**
 Før vi kan begynde at måle temperatur og luftfugtighed med DHT22, skal vi installere **MicroPython** på ESP32 og konfigurere Thonny som vores udviklingsmiljø. 
