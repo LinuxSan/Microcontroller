@@ -1,4 +1,4 @@
-## Modul 4: Kort introduktion til Thonnys brugerflade
+## Modul 1.4: Kort introduktion til Thonnys brugerflade
 
 - **Editor (stor rude)**  
   - Her skriver du din Python-kode.  
