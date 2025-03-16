@@ -82,5 +82,5 @@ print(f"Temperatur: {temp_f:.1f}°F")
 Hvis du ser temperatur- og luftfugtighedsværdier i Shell, fungerer din DHT22! ✅    
 Hvis du får "Fejl ved aflæsning af DHT22", så gå videre til fejlfinding i næste modul.
 
-🔜 Fortsæt til næste modul: 
+🔜 Fortsæt til næste modul:     
 📄 [06-troubleshooting](06-troubleshooting.md)
