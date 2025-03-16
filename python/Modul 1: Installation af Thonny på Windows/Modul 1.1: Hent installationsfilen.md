@@ -1,4 +1,4 @@
-## Modul 1: Hent installationsfilen
+## Modul 1.1: Hent installationsfilen
 
 1. **Besøg Thonnys officielle hjemmeside**  
    - Gå til [thonny.org](https://thonny.org/)  
