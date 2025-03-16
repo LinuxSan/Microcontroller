@@ -2,7 +2,7 @@
 
 ## Oversigt
 
-1. [Hent installationsfilen](#modul-1-hent-installationsfilen)  
+1. [Hent installationsfilen](Modul 1.1: Hent installationsfilen.md)  
 2. [Installationstrin i Windows](#modul-2-installationstrin-i-windows)  
 3. [Åbn Thonny og første opsætning](#modul-3-åbn-thonny-og-første-opsætning)  
 4. [Kort introduktion til Thonnys brugerflade](#modul-4-kort-introduktion-til-thonnys-brugerflade)  
