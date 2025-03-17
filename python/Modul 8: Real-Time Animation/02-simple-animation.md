@@ -23,14 +23,16 @@ ax.set_ylim(0, 10)  # Y-akse interval
 # Opret en rød prik, der skal animeres
 ln, = ax.plot([], [], 'ro')
 
+xdata, ydata = [], []
+
 def init():
     ln.set_data([], [])
     return ln,
 
 def update(frame):
-    x = frame
-    y = np.random.uniform(0, 10)  # Tilfældig y-værdi
-    ln.set_data(x, y)
+    xdata.append(frame)  # Tilføj ny x-værdi
+    ydata.append(np.random.uniform(0, 10))  # Tilføj ny y-værdi
+    ln.set_data(xdata, ydata)  # Opdater plottet
     return ln,
 
 # Opret animation
