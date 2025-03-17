@@ -41,7 +41,7 @@ import serial
 import pandas as pd
 import matplotlib.pyplot as plt
 
-ser = serial.Serial("COM3", 115200)  # Udskift med din serielle port
+ser = serial.Serial("COM3", 115200, timeout=1)  # Udskift med din serielle port
 df = pd.DataFrame(columns=["Tid", "Temperatur", "Fugtighed"])
 
 plt.ion()  # Aktiver interaktiv tilstand
