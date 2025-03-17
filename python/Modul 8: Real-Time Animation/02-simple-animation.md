@@ -54,7 +54,7 @@ plt.show()
    ax.set_ylim(0, 10)  # Y-akse interval
    ```
 
-2️⃣ **Vi laver en rød prik:**  
+2️⃣ **Vi laver en rød prik og opretter to lister:**  
    ```python
     
     # Opret en rød prik, der skal animeres
