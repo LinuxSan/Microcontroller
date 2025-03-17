@@ -49,7 +49,7 @@ while True:
         sensor.measure()
         temp = sensor.temperature()  # Temperatur i °C
         fugt = sensor.humidity()     # Luftfugtighed i %
-        print(f"{utime.time()},{temp},{fugt}")  # Send data via seriel
+        print(f"{utime.time()},{temp:.2f},{fugt:.2f}")  # Send data via seriel
     except Exception as e:
         print("Fejl ved læsning af sensor:", e)
     utime.sleep(1)  # Opdatering hvert sekund
