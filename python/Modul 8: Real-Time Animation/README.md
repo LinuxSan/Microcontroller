@@ -4,6 +4,8 @@
 Denne workshop lærer dig at bruge **FuncAnimation** til at lave **real-time animationer** i Python.  
 Du vil lære at **opdatere plots live**, **visualisere sensor-data**, og **arbejde med CSV-filer**.
 
+---
+
 ## 🎯 Hvad du lærer i denne workshop
 ✔️ Grundlæggende `FuncAnimation`-funktioner  
 ✔️ Animation af flere datasæt samtidig  
@@ -20,9 +22,10 @@ Du vil lære at **opdatere plots live**, **visualisere sensor-data**, og **arbej
 | 📄 01-introduction.md | 🎬 Introduktion til animationer |
 | 📄 02-simple-animation.md | 🔴 Simpel animation af en prik |
 | 📄 03-multiple-datasets.md | 🔵 Animation af flere datasæt |
-| 📄 04-realtime-temperature.md | 🌡️ Real-time temperaturmåling (simuleret) |
-| 📄 05-csv-animation.md | 📂 Animation af sensor-data fra CSV |
-| 📄 06-serial-data.md | 🔌 Læs sensor-data via seriel port |
+| 📄 04-separate-plots.md | 🖼️ Separate plots i subplots |
+| 📄 05-realtime-temperature.md | 🌡️ Real-time temperaturmåling (simuleret) |
+| 📄 06-csv-animation.md | 📂 Animation af sensor-data fra CSV |
+| 📄 07-serial-data.md | 🔌 Læs sensor-data via seriel port |
 
 ---
 
