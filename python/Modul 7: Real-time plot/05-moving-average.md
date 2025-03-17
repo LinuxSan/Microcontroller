@@ -5,9 +5,8 @@ Når vi arbejder med realtidsmålinger fra **DHT22**, kan data variere på grund
 Et **glidende gennemsnit** hjælper med at **udglatte data**, så vi ser en mere stabil temperatur- og fugtighedskurve.
 
 **Matematisk formel for glidende gennemsnit:**
-$V_i$
 \[
-G_i = \frac{V_{i} + V_{i-1} + ... + V_{i-n}}{n}
+    G_i=\frac{V_{i}+V_{i-1}+...+V_{i-n}}{n}
 \]
 
 ✅ **Vi tager gennemsnittet af de seneste *n* målinger for at reducere støj.**  
