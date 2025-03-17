@@ -17,6 +17,7 @@ from matplotlib.animation import FuncAnimation
 
 # Opret figur og akse
 fig, ax = plt.subplots()
+
 ax.set_xlim(0, 10)
 ax.set_ylim(0, 10)
 
@@ -24,17 +25,19 @@ ax.set_ylim(0, 10)
 ln1, = ax.plot([], [], 'ro', label="Prik 1")
 ln2, = ax.plot([], [], 'bo', label="Prik 2")
 
+xdata, y1data, y2data = [], [], []
+
 def init():
     ln1.set_data([], [])
     ln2.set_data([], [])
     return ln1, ln2
 
 def update(frame):
-    x = frame
-    y1 = np.random.uniform(0, 10)
-    y2 = np.random.uniform(0, 10)
-    ln1.set_data(x, y1)
-    ln2.set_data(x, y2)
+    xdata.append(frame)
+    y1data.append(np.random.uniform(0, 10))
+    y2data.append(np.random.uniform(0, 10))
+    ln1.set_data(xdata, y1data)
+    ln2.set_data(xdata, y2data)
     return ln1, ln2
 
 # Opret animation
