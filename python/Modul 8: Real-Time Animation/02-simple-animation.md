@@ -23,6 +23,7 @@ ax.set_ylim(0, 10)  # Y-akse interval
 # Opret en rød prik, der skal animeres
 ln, = ax.plot([], [], 'ro')
 
+# Opretter lister for de to akser
 xdata, ydata = [], []
 
 def init():
@@ -47,12 +48,20 @@ plt.show()
 ## 🔥 Hvordan fungerer koden?
 1️⃣ **Vi opretter en figur og en akse:**  
    ```python
+   # Opret figur og akse
    fig, ax = plt.subplots()
+   ax.set_xlim(0, 10)  # X-akse interval
+   ax.set_ylim(0, 10)  # Y-akse interval
    ```
 
 2️⃣ **Vi laver en rød prik:**  
    ```python
-   ln, = ax.plot([], [], 'ro')
+    
+    # Opret en rød prik, der skal animeres
+    ln, = ax.plot([], [], 'ro')
+    
+    # Opretter lister for de to akser
+    xdata, ydata = [], []
    ```
 
 3️⃣ **Vi definerer `init()`, der nulstiller plottet:**  
@@ -64,11 +73,11 @@ plt.show()
 
 4️⃣ **Vi definerer `update(frame)`, der opdaterer prikken:**  
    ```python
-   def update(frame):
-       x = frame
-       y = np.random.uniform(0, 10)  # Tilfældig y-værdi
-       ln.set_data(x, y)
-       return ln,
+    def update(frame):
+        xdata.append(frame)  # Tilføj ny x-værdi
+        ydata.append(np.random.uniform(0, 10))  # Tilføj ny y-værdi
+        ln.set_data(xdata, ydata)  # Opdater plottet
+        return ln,
    ```
 
 5️⃣ **Vi opretter en animation med `FuncAnimation()`, der kalder `update()` 10 gange:**  
