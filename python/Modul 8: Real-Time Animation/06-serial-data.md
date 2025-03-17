@@ -40,7 +40,8 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 # Åbn seriel port (tilpas denne til din enheds port)
-ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
+# Ved Linux udskift COM3 med /dev/ttyUSB0
+ser = serial.Serial('COM3', 115200, timeout=1)
 
 # Opret figur og akse
 fig, ax = plt.subplots()
