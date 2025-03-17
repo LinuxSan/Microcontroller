@@ -28,8 +28,8 @@ ax2.set_ylim(40, 60)
 ax2.set_title("Fugtighed")
 
 # Opret linjer for temperatur og fugtighed i hvert subplot
-ln1, = ax1.plot([], [], 'r-', label="Temperatur")
-ln2, = ax2.plot([], [], 'b-', label="Fugtighed")
+ln1, = ax1.plot([], [], 'ro', label="Temperatur")
+ln2, = ax2.plot([], [], 'bo', label="Fugtighed")
 
 xdata, temp_data, hum_data = [], [], []
 
