@@ -41,30 +41,57 @@ import serial
 import pandas as pd
 import matplotlib.pyplot as plt
 
-ser = serial.Serial("COM3", 115200, timeout=1)  # Udskift med din serielle port
-df = pd.DataFrame(columns=["Tid", "Temperatur", "Fugtighed"])
+# Konfiguration af seriel port (tilpas til dit system)
+ser = serial.Serial("COM3", 115200, timeout=1)
 
-plt.ion()  # Aktiver interaktiv tilstand
+# Tom liste til data
+data = []
+
+# Opsæt matplotlib
+plt.ion()  # Aktivér interaktiv mode
+fig, ax = plt.subplots()
+ax.set_xlabel("Tid")
+ax.set_ylabel("Målinger")
+ax.set_title("DHT22: Temperatur og Fugtighed med Glidende Gennemsnit")
 
 while True:
     try:
-        linje = ser.readline().decode("utf-8").strip().split(",")
-        df.loc[len(df)] = [int(linje[0]), float(linje[1]), float(linje[2])]
+        # Læs en linje fra seriel port
+        linje = ser.readline().decode("utf-8").strip()
+
+        if not linje:
+            continue  # Spring tomme linjer over
+
+        # Opdel CSV-strengen i 3 dele
+        split_data = linje.split(",")
+
+        if len(split_data) != 3:
+            print(f"Ugyldig data modtaget: {linje}")
+            continue  # Spring over hvis formatet er forkert
+
+        # Konverter værdier
+        tid = int(split_data[0])
+        temp = float(split_data[1])
+        hum = float(split_data[2])
+
+        # Tilføj data til listen
+        data.append([tid, temp, hum])
+
+        # Konverter til Pandas DataFrame
+        df = pd.DataFrame(data, columns=["Tid", "Temperatur", "Fugtighed"])
 
         # Beregn glidende gennemsnit (vindue = 5 målinger)
-        df["Glidende Temp"] = df["Temperatur"].rolling(window=5).mean()
-        df["Glidende Fugt"] = df["Fugtighed"].rolling(window=5).mean()
+        df["Glidende Temp"] = df["Temperatur"].rolling(window=5, min_periods=1).mean()
+        df["Glidende Fugt"] = df["Fugtighed"].rolling(window=5, min_periods=1).mean()
 
-        plt.clf()  # Rens grafen før vi tegner igen
-        plt.plot(df["Tid"], df["Temperatur"], marker="o", linestyle="-", label="Temperatur")
-        plt.plot(df["Tid"], df["Glidende Temp"], linestyle="--", label="Glidende Temp (5)")
-        plt.plot(df["Tid"], df["Fugtighed"], marker="s", linestyle="-.", label="Fugtighed")
-        plt.plot(df["Tid"], df["Glidende Fugt"], linestyle="--", label="Glidende Fugt (5)")
+        # Ryd grafen og plott data
+        ax.clear()
+        ax.plot(df["Tid"], df["Temperatur"], marker="o", linestyle="-", label="Temperatur")
+        ax.plot(df["Tid"], df["Glidende Temp"], linestyle="--", label="Glidende Temp (5)")
+        ax.plot(df["Tid"], df["Fugtighed"], marker="s", linestyle="-.", label="Fugtighed")
+        ax.plot(df["Tid"], df["Glidende Fugt"], linestyle="--", label="Glidende Fugt (5)")
 
-        plt.xlabel("Tid")
-        plt.ylabel("Målinger")
-        plt.title("DHT22: Temperatur og Fugtighed med Glidende Gennemsnit")
-        plt.legend()
+        ax.legend()
         plt.pause(1)  # Opdater grafen hvert sekund
 
     except Exception as e:
