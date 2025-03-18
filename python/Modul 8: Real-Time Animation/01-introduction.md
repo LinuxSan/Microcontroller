@@ -26,7 +26,7 @@ FuncAnimation(fig, update, frames, init_func, interval)
 | `frames` | Hvor mange gange `update()` skal kaldes |
 | `init_func` | Funktion, der initialiserer plottet |
 | `interval` | Hvor lang tid (ms) der går mellem hver opdatering |
-
+```
 ---
 
 ## 🔹 Eksempel: Simpel Animation af en Bevægende Prik
