@@ -17,7 +17,7 @@ Vi kan bruge det til at **visualisere dynamiske data**, f.eks. sensormålinger.
 Tænk på `FuncAnimation` som en **automatisk loop**, der **gentager en funktion flere gange** for at opdatere plottet.
 ```python
 FuncAnimation(fig, update, frames, init_func, interval)
-``
+`````
 
 | **Parameter** | **Beskrivelse** |
 |--------------|----------------|
@@ -26,7 +26,7 @@ FuncAnimation(fig, update, frames, init_func, interval)
 | `frames` | Hvor mange gange `update()` skal kaldes |
 | `init_func` | Funktion, der initialiserer plottet |
 | `interval` | Hvor lang tid (ms) der går mellem hver opdatering |
-```
+
 ---
 
 ## 🔹 Eksempel: Simpel Animation af en Bevægende Prik
