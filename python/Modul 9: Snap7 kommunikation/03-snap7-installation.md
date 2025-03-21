@@ -35,6 +35,9 @@ På Linux/Mac kan du installere Snap7 som en systembibliotek:
 ```sh
 sudo apt-get install snap7
 ```
+---
+
+Reference: [readthedocs](https://python-snap7.readthedocs.io/en/0.5/installation.html)
 
 ---
 
