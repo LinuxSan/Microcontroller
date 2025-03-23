@@ -41,7 +41,7 @@
 ✅ Python 3.x installeret  
 ✅ pip (Python pakkehåndtering)  
 ✅ En teksteditor (f.eks. VS Code, Atom)  
-✅ Arduino IDE (til programmering af ESP32)
+✅ Thonny eller VS Code (til programmering af ESP32)
 
 ### 🔌 Hardware
 
