@@ -40,21 +40,38 @@ Fourier-transform bruges til at identificere frekvenser (f.eks. periodisk støj)
 
 ```python
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 from scipy.fft import fft, fftfreq
+from scipy.interpolate import interp1d
 
-# Brug kun temperaturkolonnen
-signal = df["temp"].values
-N = len(signal)
-dt = (df["timestamp"].iloc[1] - df["timestamp"].iloc[0]) / 1000  # ms → sek
+# === 1. Indlæs data og parse timestamp ===
+df = pd.read_csv("data.csv")
+df["timestamp"] = pd.to_datetime(df["timestamp"])
+df = df.sort_values("timestamp")
 
-frekvenser = fftfreq(N, dt)
-spektrum = np.abs(fft(signal))
+# === 2. Konverter tid til sekunder fra start ===
+df["time_sec"] = (df["timestamp"] - df["timestamp"].iloc[0]).dt.total_seconds()
 
-plt.plot(frekvenser[:N//2], spektrum[:N//2])
-plt.title("FFT af temperatur")
+# === 3. Interpolér temperatur til faste tidspunkter ===
+dt = 1.0  # 1 sekund mellem samples (du kan ændre dette)
+t_uniform = np.arange(0, df["time_sec"].iloc[-1], dt)
+interp_func = interp1d(df["time_sec"], df["temperature"], kind="linear", fill_value="extrapolate")
+signal_uniform = interp_func(t_uniform)
+
+# === 4. FFT ===
+N = len(signal_uniform)
+frequencies = fftfreq(N, dt)
+spectrum = np.abs(fft(signal_uniform))
+
+# === 5. Plot ===
+plt.figure(figsize=(10, 5))
+plt.plot(frequencies[:N//2], spectrum[:N//2])
+plt.title("FFT af interpoleret temperatur")
 plt.xlabel("Frekvens (Hz)")
 plt.ylabel("Amplitude")
-plt.grid()
+plt.grid(True)
+plt.tight_layout()
 plt.show()
 ```
 
